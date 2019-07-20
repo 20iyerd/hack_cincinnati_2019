@@ -3,35 +3,39 @@ import "package:flutter/material.dart";
 class Topics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-        length: 1,
-        child: TabBarView(
-          children: [
-            ListView(
-              children: <Widget>[
-                _tile("Abortion", Icons.child_friendly, context),
-                _tile("Budget&Economy", Icons.attach_money, context),
-                _tile("Civil Rights", Icons.gavel, context),
-                _tile("Crime", Icons.do_not_disturb, context),
-                _tile("Drugs", Icons.smoking_rooms, context),
-                _tile("Education", Icons.school, context),
-                _tile("Energy & Oil", Icons.power, context),
-                _tile("Environment", Icons.nature, context),
-                _tile("Families & Children", Icons.people_outline, context),
-                _tile("Foreign Policy", Icons.map, context),
-                _tile("Free Trade", Icons.payment, context),
-                _tile("Government Reform", Icons.account_balance, context),
-                _tile("Gun Control", Icons.warning, context),
-                _tile("Health Care", Icons.healing, context),
-                _tile("Homeland Security", Icons.airplanemode_active, context),
-                _tile("Immigration", Icons.directions_boat, context),
-                _tile("Infrastructure & Technology", Icons.location_city, context),
-                _tile("Jobs", Icons.business_center, context),
-                _tile("Principles & Values", Icons.loyalty, context)
+    return Scaffold(
+        appBar: AppBar(title: Text("Topics")),
+        body: DefaultTabController(
+            length: 1,
+            child: TabBarView(
+              children: [
+                ListView(
+                  children: <Widget>[
+                    _tile("Abortion", Icons.child_friendly, context),
+                    _tile("Budget&Economy", Icons.attach_money, context),
+                    _tile("Civil Rights", Icons.gavel, context),
+                    _tile("Crime", Icons.do_not_disturb, context),
+                    _tile("Drugs", Icons.smoking_rooms, context),
+                    _tile("Education", Icons.school, context),
+                    _tile("Energy & Oil", Icons.power, context),
+                    _tile("Environment", Icons.nature, context),
+                    _tile("Families & Children", Icons.people_outline, context),
+                    _tile("Foreign Policy", Icons.map, context),
+                    _tile("Free Trade", Icons.payment, context),
+                    _tile("Government Reform", Icons.account_balance, context),
+                    _tile("Gun Control", Icons.warning, context),
+                    _tile("Health Care", Icons.healing, context),
+                    _tile("Homeland Security", Icons.airplanemode_active,
+                        context),
+                    _tile("Immigration", Icons.directions_boat, context),
+                    _tile("Infrastructure & Technology", Icons.location_city,
+                        context),
+                    _tile("Jobs", Icons.business_center, context),
+                    _tile("Principles & Values", Icons.loyalty, context)
+                  ],
+                )
               ],
-            )
-          ],
-        ));
+            )));
   }
 
   Card _tile(String title, IconData icon, BuildContext context) => Card(
