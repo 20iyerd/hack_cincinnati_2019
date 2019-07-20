@@ -9,7 +9,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      child: FlatButton(onPressed: () {Navigator.of(context).pushNamed('/listIcons');}, child: Text("Push")),
+      child: FlatButton(onPressed: () {Navigator.of(context).pushNamed('/topics');}, child: Text("Push")),
     );
   }
 }
