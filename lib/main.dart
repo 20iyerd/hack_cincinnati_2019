@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'home.dart';
-import 'list.dart';
+//import 'list.dart';
 
-//void main() => runApp(MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
@@ -15,17 +15,25 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'My App',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-      ),
+      home: HomePage(),
+      initialRoute: '/login',
+      onGenerateRoute: _getRoute,
+      routes: <String, WidgetBuilder>{
+        //generate routes to store in stack
+        '/home': (BuildContext context) => new HomePage(),
+      },
+    );
+  }
+  Route<dynamic> _getRoute(RouteSettings settings) {
+    //construct page route
+    if (settings.name != '/login') { //TODO: why ???
+      return null;
+    }
+
+    return MaterialPageRoute<void>(
+      settings: settings,
+      builder: (BuildContext context) => HomePage(),
+      fullscreenDialog: true,
     );
   }
 }
