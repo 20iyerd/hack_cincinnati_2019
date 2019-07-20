@@ -13,6 +13,10 @@ class HomePage extends StatelessWidget {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          Image.asset(
+            'logo.png',
+            width: 100,
+          ),
           Text(
             'Enter ZIP Code Here:',
             textDirection: TextDirection.ltr,
@@ -25,7 +29,8 @@ class HomePage extends StatelessWidget {
             decoration: InputDecoration(labelText: 'Search for your ZIP Code'),
           ),
           FlatButton(
-            child: Text('NEXT',
+            child: Text(
+              'NEXT',
               textDirection: TextDirection.ltr,
               style: TextStyle(
                 fontSize: 32,
