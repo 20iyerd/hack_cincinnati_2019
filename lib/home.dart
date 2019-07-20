@@ -1,15 +1,36 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  _HomePageState createState() => _HomePageState();
-}
+//void main() => runApp(MyApp());
 
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Container(
-      child: FlatButton(onPressed: () {Navigator.of(context).pushNamed('/listIcons');}, child: Text("Push")),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text('Welcome to CouchPolitics'),
+        ),
+        body: Center(
+          child:
+          Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                'Enter ZIP Code Here:',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(
+                  fontSize: 32,
+                  color: Colors.black87,
+                ),
+              ),
+          TextFormField(
+            decoration: InputDecoration(
+                labelText: 'Search for your ZIP Code'
+            ),
+          )
+
+            ],
+          )
+          ),
     );
   }
 }
