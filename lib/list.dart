@@ -49,19 +49,11 @@ class TabBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: TabBar(
-              tabs: [
-                Tab(text: 'Local'),
-                Tab(text: 'State'),
-                Tab(text: 'National'),
-              ],
-            ),
-            title: Text('Levels'),
-          ),
-
+        length: 2,
+        child: Column(
+          children: [ Text('Topics'),
+            Text('Candidates')
+      ]
         ),
     );
   }
