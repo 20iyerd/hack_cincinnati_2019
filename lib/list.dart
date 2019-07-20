@@ -51,9 +51,25 @@ class TabBarDemo extends StatelessWidget {
     return DefaultTabController(
         length: 2,
         child: Column(
-          children: [ Text('Topics'),
-            Text('Candidates')
-      ]
+          children: [ Card(
+          child: FlatButton(
+            child: Text('Topics'),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/topics'); //TODO: FIX!
+               },
+            color: Colors.transparent,
+           ),
+          ),
+          Card(
+          child: FlatButton(
+          child: Text('Candidates'),
+          onPressed: () {
+            Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+              },
+          color: Colors.transparent,
+         ),
+        ),
+          ],
         ),
     );
   }
