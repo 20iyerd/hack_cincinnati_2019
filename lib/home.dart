@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome to CouchPolitics'),
+        title: Text('Welcome to CouchPolitics!'),
       ),
       body: Center(
           child: Column(
@@ -25,7 +25,13 @@ class HomePage extends StatelessWidget {
             decoration: InputDecoration(labelText: 'Search for your ZIP Code'),
           ),
           FlatButton(
-            child: Text('next'),
+            child: Text('NEXT',
+              textDirection: TextDirection.ltr,
+              style: TextStyle(
+                fontSize: 32,
+                color: Colors.black87,
+              ),
+            ),
             onPressed: () {
               Navigator.of(context).pushNamed('/listIcons'); //TODO: FIX!
             },
