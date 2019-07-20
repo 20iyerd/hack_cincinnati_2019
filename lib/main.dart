@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 import 'list.dart';
+import 'topics.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,6 +23,7 @@ class _MyAppState extends State<MyApp> {
         //generate routes to store in stack
         '/home': (BuildContext context) => new HomePage(),
         '/listIcons': (BuildContext context) => new TabBarDemo(),
+        '/topics': (BuildContext context) => new Topics(),
       },
     );
   }
