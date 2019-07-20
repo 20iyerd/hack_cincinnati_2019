@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'home.dart';
-//import 'list.dart';
+import 'list.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,11 +16,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'My App',
       home: HomePage(),
-      initialRoute: '/login',
+      initialRoute: '/home',
       onGenerateRoute: _getRoute,
       routes: <String, WidgetBuilder>{
         //generate routes to store in stack
         '/home': (BuildContext context) => new HomePage(),
+        '/listIcons': (BuildContext context) => new TabBarDemo(),
       },
     );
   }
