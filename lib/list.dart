@@ -81,7 +81,7 @@ class TabBarDemo extends StatelessWidget {
               style: Theme.of(context).textTheme.display1,
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/topics'); //TODO: FIX!
+              Navigator.of(context).pushNamed('/topics');
             },
             color: Colors.lightBlueAccent,
           ),
@@ -97,7 +97,7 @@ class TabBarDemo extends StatelessWidget {
               style: Theme.of(context).textTheme.display1,
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+              Navigator.of(context).pushNamed('/levels');
             },
             color: Colors.white,
           ),
