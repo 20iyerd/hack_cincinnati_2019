@@ -57,7 +57,11 @@ class Levels extends StatelessWidget{
               style: Theme.of(context).textTheme.display1,
             ),
             onPressed: (){
-              Navigator.of(context).pushNamed('/listPage'); //TODO: FIX!
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ListPage(zip: zip,),
+                  )); //TODO: FIX!
             },
             color: Colors.deepPurpleAccent,
           )

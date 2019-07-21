@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'post.dart';
 import 'levels.dart';
+import 'topics.dart';
 
 class ListPage extends StatefulWidget {
   final String zip;
@@ -88,11 +89,7 @@ class TabBarDemo extends StatelessWidget {
               style: Theme.of(context).textTheme.display1,
             ),
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Levels(zip: zip,),
-                  ));
+              Navigator.of(context).pushNamed('/topics');
             },
             color: Colors.lightBlueAccent,
           ),

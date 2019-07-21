@@ -59,67 +59,67 @@ class Topics extends StatelessWidget {
             leading: Icon(icon, color: Colors.blue[500]),
           )));
 }
-
-class ScopeList extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return DefaultTabController(
-        length: 1,
-        child: TabBarView(children: [
-          ListView(children: <Widget>[
-            Card(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "Local",
-                    style: Theme.of(context).textTheme.subhead,
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
-                    },
-                    color: Colors.transparent,
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "State",
-                    style: Theme.of(context).textTheme.subhead,
-                  ),
-                  FlatButton(
-                    onPressed: (){
-                      Navigator.of(context).pushNamed('/thing');
-                    },
-                    color: Colors.transparent,
-                  ),
-                ],
-              ),
-            ),
-            Card(
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    "National",
-                    style: Theme.of(context).textTheme.subhead,
-                  ),
-                  FlatButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
-                    },
-                    color: Colors.transparent,
-                  ),
-                ],
-              ),
-            )
-          ])
-        ]));
-  }
-}
+//
+//class ScopeList extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    // TODO: implement build
+//    return DefaultTabController(
+//        length: 1,
+//        child: TabBarView(children: [
+//          ListView(children: <Widget>[
+//            Card(
+//              child: Column(
+//                children: <Widget>[
+//                  Text(
+//                    "Local",
+//                    style: Theme.of(context).textTheme.subhead,
+//                  ),
+//                  FlatButton(
+//                    onPressed: () {
+//                      Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+//                    },
+//                    color: Colors.transparent,
+//                  ),
+//                ],
+//              ),
+//            ),
+//            Card(
+//              child: Column(
+//                children: <Widget>[
+//                  Text(
+//                    "State",
+//                    style: Theme.of(context).textTheme.subhead,
+//                  ),
+//                  FlatButton(
+//                    onPressed: (){
+//                      Navigator.of(context).pushNamed('/thing');
+//                    },
+//                    color: Colors.transparent,
+//                  ),
+//                ],
+//              ),
+//            ),
+//            Card(
+//              child: Column(
+//                children: <Widget>[
+//                  Text(
+//                    "National",
+//                    style: Theme.of(context).textTheme.subhead,
+//                  ),
+//                  FlatButton(
+//                    onPressed: () {
+//                      Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+//                    },
+//                    color: Colors.transparent,
+//                  ),
+//                ],
+//              ),
+//            )
+//          ])
+//        ]));
+//  }
+//}
 
 class TopicFramework extends StatelessWidget {
   final String topic;
