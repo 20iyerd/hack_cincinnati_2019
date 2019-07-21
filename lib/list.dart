@@ -13,27 +13,26 @@ class _ListPageState extends State<ListPage> {
     // TODO: implement build
     return Column(
       children: <Widget>[
-
         FutureBuilder<Post>(
-        future: fetchPost(),
-        builder: (context, snapshot) {
-        if (snapshot.hasData) {
-        return Text(snapshot.data.title);
-        } else if (snapshot.hasError) {
-        return Text("${snapshot.error}");
-        }
+          future: fetchPost(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Text(snapshot.data.title);
+            } else if (snapshot.hasError) {
+              return Text("${snapshot.error}");
+            }
 
-        // By default, show a loading spinner.
-        return CircularProgressIndicator();
-        },
+            // By default, show a loading spinner.
+            return CircularProgressIndicator();
+          },
         )
       ],
     );
   }
 
   Future<Post> fetchPost() async {
-    final response =
-    await http.get('https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyCW0q6HvBThH6EkQ21-ysx2D2LdYO0Ccm8');
+    final response = await http.get(
+        'https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyCW0q6HvBThH6EkQ21-ysx2D2LdYO0Ccm8');
 
     if (response.statusCode == 200) {
       // If server returns an OK response, parse the JSON.
@@ -49,35 +48,34 @@ class TabBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-        length: 2,
-        child: Center (
-          child: Container(
-            padding: new EdgeInsets.fromLTRB(50, 100, 50, 200),
+      length: 2,
+      child: Center(
+        child: Container(
+          padding: new EdgeInsets.fromLTRB(50, 100, 50, 200),
           child: Column(
-          children: [ Card(
-          child: FlatButton(
-            child: Text('Topics'),
-            onPressed: () {
-              Navigator.of(context).pushNamed('/topics'); //TODO: FIX!
-               },
-            color: Colors.transparent,
-           ),
+            children: [
+              Card(
+                child: FlatButton(
+                  child: Text('Topics'),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/topics'); //TODO: FIX!
+                  },
+                  color: Colors.transparent,
+                ),
+              ),
+              Card(
+                child: FlatButton(
+                  child: Text('Candidates'),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+                  },
+                  color: Colors.transparent,
+                ),
+              ),
+            ],
           ),
-          Card(
-          child: FlatButton(
-          child: Text('Candidates'),
-          onPressed: () {
-            Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
-              },
-          color: Colors.transparent,
-         ),
         ),
-          ],
-        ),
-    ),
-        ),
+      ),
     );
   }
-
-
 }
