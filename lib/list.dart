@@ -52,7 +52,7 @@ class TabBarDemo extends StatelessWidget {
         length: 2,
         child: Center (
           child: Container(
-            padding: new EdgeInsets.all(10.0),
+            padding: new EdgeInsets.fromLTRB(50, 100, 50, 200),
           child: Column(
           children: [ Card(
           child: FlatButton(
