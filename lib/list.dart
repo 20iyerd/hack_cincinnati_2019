@@ -13,27 +13,26 @@ class _ListPageState extends State<ListPage> {
     // TODO: implement build
     return Column(
       children: <Widget>[
-
         FutureBuilder<Post>(
-        future: fetchPost(),
-        builder: (context, snapshot) {
-        if (snapshot.hasData) {
-        return Text(snapshot.data.title);
-        } else if (snapshot.hasError) {
-        return Text("${snapshot.error}");
-        }
+          future: fetchPost(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return Text(snapshot.data.title);
+            } else if (snapshot.hasError) {
+              return Text("${snapshot.error}");
+            }
 
-        // By default, show a loading spinner.
-        return CircularProgressIndicator();
-        },
+            // By default, show a loading spinner.
+            return CircularProgressIndicator();
+          },
         )
       ],
     );
   }
 
   Future<Post> fetchPost() async {
-    final response =
-    await http.get('https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyCW0q6HvBThH6EkQ21-ysx2D2LdYO0Ccm8');
+    final response = await http.get(
+        'https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyCW0q6HvBThH6EkQ21-ysx2D2LdYO0Ccm8');
 
     if (response.statusCode == 200) {
       // If server returns an OK response, parse the JSON.
