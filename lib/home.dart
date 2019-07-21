@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    final Color backgroundColor: white,
+    backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Welcome to CouchPolitics!'),
       ),
