@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import 'dart:io';
+import 'dart:convert';
 
 class Topics extends StatelessWidget {
   @override
@@ -86,7 +88,11 @@ class ScopeList extends StatelessWidget {
                   ),
                   FlatButton(
                     onPressed: () {
-                      Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TopicFramework(),
+                          ));
                     },
                     color: Colors.transparent,
                   ),
@@ -111,5 +117,35 @@ class ScopeList extends StatelessWidget {
             )
           ])
         ]));
+  }
+}
+
+class TopicFramework extends StatelessWidget {
+  final String topic;
+  final File file = File("/assets/topics.csv");
+  TopicFramework({Key key, @required this.topic}):super(key: key);
+
+
+  @override
+  Widget build(BuildContext context) {
+    String line = file.readAsStringSync(encoding: utf8);
+    List row = line.split(',');
+
+    String thing1 = row[0];
+    String thing2 = row[1];
+    String thing3 = row[2];
+    return Scaffold(
+
+      appBar: AppBar(
+        title: Title(child: Text(topic)),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Text(thing1)
+          ],
+        ),
+      )
+    );
   }
 }

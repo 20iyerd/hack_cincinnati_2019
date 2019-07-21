@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/listPage'); //TODO: FIX!
+              Navigator.of(context).pushNamed('/listIcons'); //TODO: FIX!
             },
             color: Colors.transparent,
           ),
