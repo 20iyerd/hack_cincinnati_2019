@@ -50,7 +50,10 @@ class TabBarDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 2,
-        child: Column(
+        child: Center (
+          child: Container(
+            padding: new EdgeInsets.all(10.0),
+          child: Column(
           children: [ Card(
           child: FlatButton(
             child: Text('Topics'),
@@ -70,6 +73,8 @@ class TabBarDemo extends StatelessWidget {
          ),
         ),
           ],
+        ),
+    ),
         ),
     );
   }
