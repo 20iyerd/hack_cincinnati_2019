@@ -48,36 +48,31 @@ class _ListPageState extends State<ListPage> {
 class TabBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-        length: 2,
-        child: Center (
-          child: Container(
-            padding: new EdgeInsets.fromLTRB(50, 100, 50, 200),
-          child: Column(
+    return ListView(
           children: [ Card(
+            child: SizedBox(width: 100, height: 400,
           child: FlatButton(
-            child: Text('Topics'),
+            child: Text('Topics', style: Theme.of(context).textTheme.display1,),
             onPressed: () {
               Navigator.of(context).pushNamed('/topics'); //TODO: FIX!
                },
-            color: Colors.transparent,
+            color: Colors.lightBlueAccent,
            ),
           ),
+    ),
           Card(
+            child: SizedBox(width: 100, height: 400,
           child: FlatButton(
-          child: Text('Candidates'),
+          child: Text('Candidates', style: Theme.of(context).textTheme.display1,),
           onPressed: () {
             Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
               },
-          color: Colors.transparent,
+          color: Colors.white,
          ),
         ),
-          ],
-        ),
     ),
-        ),
-    );
-  }
+    ]);
+    }
 
 
 }
