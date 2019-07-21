@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'list.dart';
 
 class Levels extends StatelessWidget{
+  final String zip;
+  Levels({@required this.zip});
   @override
   Widget build(BuildContext context) {
     return ListView(children: [
@@ -14,7 +17,11 @@ class Levels extends StatelessWidget{
               style: Theme.of(context).textTheme.display1,
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ListPage(zip: zip),
+                  )); //TODO: FIX!
             },
             color: Colors.greenAccent,
           ),
@@ -30,7 +37,11 @@ class Levels extends StatelessWidget{
               style: Theme.of(context).textTheme.display1,
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ListPage(zip: zip,),
+                  )); //TODO: FIX!
             },
             color: Colors.blueAccent,
           ),
@@ -46,7 +57,7 @@ class Levels extends StatelessWidget{
               style: Theme.of(context).textTheme.display1,
             ),
             onPressed: (){
-              Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+              Navigator.of(context).pushNamed('/listPage'); //TODO: FIX!
             },
             color: Colors.deepPurpleAccent,
           )

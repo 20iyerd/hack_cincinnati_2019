@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'list.dart';
 
 //void main() => runApp(MyApp());
 
 class HomePage extends StatelessWidget {
+  final _zipController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +33,7 @@ class HomePage extends StatelessWidget {
           ),
           TextFormField(
             decoration: InputDecoration(labelText: 'Search for your ZIP Code'),
+            controller: _zipController,
           ),
           FlatButton(
             child: Text(
@@ -41,7 +45,11 @@ class HomePage extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.of(context).pushNamed('/listIcons'); //TODO: FIX!
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TabBarDemo(zip: _zipController.text,),
+                  )); //TODO: FIX!
             },
             color: Colors.transparent,
           ),

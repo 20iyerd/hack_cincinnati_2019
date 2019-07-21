@@ -1,6 +1,7 @@
 import "package:flutter/material.dart";
 import 'dart:io';
 import 'dart:convert';
+import 'package:flutter/services.dart' as rootBundle;
 
 class Topics extends StatelessWidget {
   @override
@@ -43,7 +44,11 @@ class Topics extends StatelessWidget {
   Card _tile(String title, IconData icon, BuildContext context) => Card(
       child: FlatButton(
           onPressed: () {
-            Navigator.of(context).pushNamed(title);
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => TopicFramework(topic: title,),
+                ));
           },
           child: ListTile(
             title: Text(title,
@@ -87,12 +92,8 @@ class ScopeList extends StatelessWidget {
                     style: Theme.of(context).textTheme.subhead,
                   ),
                   FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => TopicFramework(),
-                          ));
+                    onPressed: (){
+                      Navigator.of(context).pushNamed('/thing');
                     },
                     color: Colors.transparent,
                   ),
@@ -122,27 +123,43 @@ class ScopeList extends StatelessWidget {
 
 class TopicFramework extends StatelessWidget {
   final String topic;
-  final File file = File("/assets/topics.csv");
+  String csvRaw = "";
+
+//  final File file = File('hack_cincinnati_2019/assets/topicinformation.csv');
   TopicFramework({Key key, @required this.topic}):super(key: key);
+  Future<String> loadAsset(String path) async {
+    return await rootBundle.rootBundle.loadString(path);
+  }
+  String loadCSV() {
+    loadAsset("assets/topicinformation.csv").then((dynamic output) {
+      print("beginning" + output);
+      csvRaw = output;
+    });
+    return csvRaw;
+  }
 
 
   @override
   Widget build(BuildContext context) {
-    String line = file.readAsStringSync(encoding: utf8);
-    List row = line.split(',');
-
+//    loadAsset("assets/topicinformation.csv");
+//    print(csvRaw);
+//    csvRaw = loadCSV();
+//    print(csvRaw);
+    List row = loadCSV().split(',');
+    print(row);
     String thing1 = row[0];
-    String thing2 = row[1];
-    String thing3 = row[2];
+//    String thing2 = row[1];
+//    String thing3 = row[2];
+
     return Scaffold(
 
       appBar: AppBar(
-        title: Title(child: Text(topic)),
+        title: Title(child: Text(topic),color: Colors.blueGrey,),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            Text(thing1)
+            Text("About six-in-ten U.S. adults (58%) said in a 2018 survey that abortion should be legal in all or most cases, compared with 37% who said it should be illegal. There are substantial partisan and ideological divides on abortion, with Democrats much more likely than Republicans to say it should be legal in all or most cases. When it comes to the Supreme Court’s landmark 1973 ruling, about seven-in-ten Americans (69%) said Roe v. Wade should not be completely overturned,",style: Theme.of(context).textTheme.display1,) //TODO: FIX
           ],
         ),
       )
