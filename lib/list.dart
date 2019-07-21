@@ -56,7 +56,14 @@ class TabBarDemo extends StatelessWidget {
             children: [
               Card(
                 child: FlatButton(
-                  child: Text('Topics'),
+                  child: Text('TOPICS',
+                    textDirection:
+                    TextDirection.ltr,
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.black87,
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/topics'); //TODO: FIX!
                   },
@@ -65,7 +72,14 @@ class TabBarDemo extends StatelessWidget {
               ),
               Card(
                 child: FlatButton(
-                  child: Text('Candidates'),
+                  child: Text('CANDIDATES',
+                    textDirection:
+                    TextDirection.ltr,
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.black87,
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
                   },

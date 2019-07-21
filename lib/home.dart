@@ -6,9 +6,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
-
       appBar: AppBar(
         title: Text('Welcome to CouchPolitics!'),
       ),
@@ -21,7 +19,7 @@ class HomePage extends StatelessWidget {
             width: 200,
           ),
           Text(
-            'Enter ZIP Code Here:',
+            'Get Started Here!',
             textDirection: TextDirection.ltr,
             style: TextStyle(
               fontSize: 32,
