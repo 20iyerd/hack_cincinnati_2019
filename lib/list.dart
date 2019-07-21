@@ -13,11 +13,26 @@ class _ListPageState extends State<ListPage> {
     // TODO: implement build
     return Column(
       children: <Widget>[
-        FutureBuilder<Post>(
+        FutureBuilder(
           future: fetchPost(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return Text(snapshot.data.title);
+              return Container(
+                  child: SizedBox(
+                width: 400,
+                height: 780,
+                child: ListView.builder(
+                    itemCount: 5,
+                    itemBuilder: (context, position) {
+                      return Card(
+                        child: ListTile(
+                          title: Text(
+                            '${snapshot.data[position].name}',
+                          ),
+                        ),
+                      );
+                    }),
+              ));
             } else if (snapshot.hasError) {
               return Text("${snapshot.error}");
             }
@@ -30,17 +45,25 @@ class _ListPageState extends State<ListPage> {
     );
   }
 
-  Future<Post> fetchPost() async {
-    final response = await http.get(
-        'https://www.googleapis.com/civicinfo/v2/elections?key=AIzaSyCW0q6HvBThH6EkQ21-ysx2D2LdYO0Ccm8');
-
+  Future<List<Post>> fetchPost() async {
+    List<Post> list;
+    var response = await http.get(
+        Uri.encodeFull(
+            'https://www.googleapis.com/civicinfo/v2/elections?key=AIzaSyCW0q6HvBThH6EkQ21-ysx2D2LdYO0Ccm8'),
+        headers: {"Accept": "application/json"});
+    print(response.body);
     if (response.statusCode == 200) {
       // If server returns an OK response, parse the JSON.
-      return Post.fromJson(json.decode(response.body));
+      var data = json
+          .decode(response.body); // Post.fromJson(json.decode(response.body));
+      var rest = data["elections"] as List;
+      print(rest);
+      list = rest.map<Post>((json) => Post.fromJson(json)).toList();
     } else {
       // If that response was not OK, throw an error.
       throw Exception('Failed to load post');
     }
+    return list;
   }
 }
 
