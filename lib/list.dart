@@ -47,60 +47,39 @@ class _ListPageState extends State<ListPage> {
 class TabBarDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
-    return DefaultTabController(
-      length: 2,
-      child: Center(
-        child: Container(
-          padding: new EdgeInsets.fromLTRB(50, 100, 50, 200),
-          child: Column(
-            children: [
-              Card(
-                child: FlatButton(
-                  child: Text('Topics'),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/topics'); //TODO: FIX!
-                  },
-                  color: Colors.transparent,
-                ),
-              ),
-              Card(
-                child: FlatButton(
-                  child: Text('Candidates'),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
-                  },
-                  color: Colors.transparent,
-                ),
-              ),
-            ],
-=======
-    return ListView(
-          children: [ Card(
-            child: SizedBox(width: 100, height: 400,
+    return ListView(children: [
+      Card(
+        child: SizedBox(
+          width: 100,
+          height: 400,
           child: FlatButton(
-            child: Text('Topics', style: Theme.of(context).textTheme.display1,),
+            child: Text(
+              'Topics',
+              style: Theme.of(context).textTheme.display1,
+            ),
             onPressed: () {
               Navigator.of(context).pushNamed('/topics'); //TODO: FIX!
-               },
+            },
             color: Colors.lightBlueAccent,
-           ),
->>>>>>> 040b5089c3db2b0409a4a03fff7271da8bc37b0d
           ),
-    ),
-          Card(
-            child: SizedBox(width: 100, height: 400,
-          child: FlatButton(
-          child: Text('Candidates', style: Theme.of(context).textTheme.display1,),
-          onPressed: () {
-            Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
-              },
-          color: Colors.white,
-         ),
         ),
-    ),
+      ),
+      Card(
+        child: SizedBox(
+          width: 100,
+          height: 400,
+          child: FlatButton(
+            child: Text(
+              'Candidates',
+              style: Theme.of(context).textTheme.display1,
+            ),
+            onPressed: () {
+              Navigator.of(context).pushNamed('/thing'); //TODO: FIX!
+            },
+            color: Colors.white,
+          ),
+        ),
+      ),
     ]);
-    }
-
-
+  }
 }
