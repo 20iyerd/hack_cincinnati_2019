@@ -14,8 +14,8 @@ class HomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Image.asset(
-            'logo.png',
-            width: 100,
+            'assets/logo.png',
+            width: 200,
           ),
           Text(
             'Enter ZIP Code Here:',
