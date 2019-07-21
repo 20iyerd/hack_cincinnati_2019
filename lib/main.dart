@@ -23,6 +23,7 @@ class _MyAppState extends State<MyApp> {
         //generate routes to store in stack
         '/home': (BuildContext context) => new HomePage(),
         '/listIcons': (BuildContext context) => new TabBarDemo(),
+        '/listPage': (BuildContext context) => new ListPage(),
         '/topics': (BuildContext context) => new Topics(),
         '/Abortion': (BuildContext context) => new Topics(),
         '/Budget&Economy': (BuildContext context) => new Topics(),

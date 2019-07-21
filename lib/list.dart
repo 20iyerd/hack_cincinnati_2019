@@ -32,7 +32,7 @@ class _ListPageState extends State<ListPage> {
 
   Future<Post> fetchPost() async {
     final response = await http.get(
-        'https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyCW0q6HvBThH6EkQ21-ysx2D2LdYO0Ccm8');
+        'https://www.googleapis.com/civicinfo/v2/elections?key=AIzaSyCW0q6HvBThH6EkQ21-ysx2D2LdYO0Ccm8');
 
     if (response.statusCode == 200) {
       // If server returns an OK response, parse the JSON.
